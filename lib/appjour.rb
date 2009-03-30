@@ -61,8 +61,8 @@ module Appjour
   # TODO
   # divine app port numbers 
   # mongrel: http://www.caboo.se/articles/2006/11/14/configure-mongrel-rails-logger-per-port
-  def self.publish(name,port=:guess,should_sleep=true)
-    STDERR.puts "Publishing #{name} on #{port}"
+  def self.publish(name,port=:guess,path="/",should_sleep=true)
+    STDERR.puts "Publishing #{name} on #{port} with path #{path}"
     
     if port.is_a?(Symbol)
       port = guess_port(port)
@@ -72,7 +72,7 @@ module Appjour
     end
     
     tr = DNSSD::TextRecord.new
-    tr["description"] = "An app."
+    tr["path"] = path # http://www.zeroconf.org/Rendezvous/txtrecords.html
     
     DNSSD.register(name, SERVICE, "local", port.to_i, tr.encode) do |reply|
       STDERR.puts "Announcing #{name}..."

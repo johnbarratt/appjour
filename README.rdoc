@@ -5,14 +5,18 @@ Publish your app in the ether using Bonjour.
 == Installation
 
   sudo gem install dnssd
-  sudo gem install lachie-appjour --source=http://gems.github.com
+  sudo gem install johnbarratt-appjour --source=http://gems.github.com
   
 == Usage
 
   rincewind$ appjour leet_merb 4000
-  Publishing leet_merb on 4000
+  Publishing leet_merb on 4000 with path /
   Announcing leet_merb...
   
+  therapy$ appjour leet_merb 4000 /hello_world
+  Publishing leet_merb on 4000 with path /hello_world
+  Announcing leet_merb...
+
   death$ appjour leet_merb
   # ... leet_merb pops up in web browser ...
   

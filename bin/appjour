@@ -11,6 +11,7 @@ help    = ARGV.delete("-h")
 
 name = ARGV.shift
 port = ARGV.shift
+path = ARGV.shift
 
 if name && !port
   begin
@@ -23,12 +24,15 @@ end
 
 if help
   puts <<-EOH
-  appjour                  look for apps
-  appjour [NAME]           open the app NAME
-  appjour [NAME] [PORT]    publish your app as NAME on PORT
-  appjour [PORT]           publish your app as $USER on PORT
+  appjour                      look for apps
+  appjour [NAME]               open the app NAME
+  appjour [NAME] [PORT]        publish your app as NAME on PORT
+  appjour [NAME] [PORT] [PATH] publish your app as NAME on PORT with PATH
+  appjour [PORT]               publish your app as $USER on PORT
 
   EOH
+elsif name && port && path
+  Appjour.publish(name, port, path)
 elsif name && port
   Appjour.publish(name, port)
 elsif name
