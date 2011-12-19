@@ -6,35 +6,35 @@ Publish your app in the ether using Bonjour.
 
   sudo gem install dnssd
   sudo gem install johnbarratt-appjour --source=http://gems.github.com
-  
+
 == Usage
 
   rincewind$ appjour leet_merb 4000
   Publishing leet_merb on 4000 with path /
   Announcing leet_merb...
-  
+
   therapy$ appjour leet_merb 4000 /hello_world
   Publishing leet_merb on 4000 with path /hello_world
   Announcing leet_merb...
 
   death$ appjour leet_merb
   # ... leet_merb pops up in web browser ...
-  
+
   death$ appjour
   Searching for servers (3 seconds)
   found web app called 'leet_merb'
-  
+
   # use the username if only the port is specified
   rincewind$ appjour 4001
   Publishing lachie on 4001
   Announcing lachie...
-  
+
 == Port guessing
 
 In the initialization phase of your app put:
 
   Appjour.publish('leet rails')
-  
+
 Appjour will endeavour to extract the port number from your app.
 
 It can currently discover mongrel's port.
