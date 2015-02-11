@@ -21,7 +21,7 @@ appjour_gemspec = Gem::Specification.new do |s|
   s.autorequire      = "appjour"
   s.files            = %w(README.rdoc Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
   s.executables      = %w(appjour)
-  
+
   s.add_dependency "dnssd", ">= 0.6.0"
 end
 
@@ -37,7 +37,7 @@ namespace :gem do
         f.puts(appjour_gemspec.to_ruby)
       end
     end
-    
+
     desc "test spec in github cleanroom"
     task :test do
       require 'rubygems/specification'
